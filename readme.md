@@ -5,8 +5,8 @@ Build Laravel apps from intuitive markdown
 ```bash
 composer install ajthinking/skeleton.md
 ```
-PLACEHOLDER GIF
 <img src="https://i.imgur.com/U9NnDix.gif" title="source: imgur.com" />
+PLACEHOLDER GIF
 
 ## Usage
 ```bash
