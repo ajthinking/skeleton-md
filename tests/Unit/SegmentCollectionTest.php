@@ -10,10 +10,10 @@ class SegmentCollectionTest extends TestCase
 {
     
     /** @test */
-    public function file_runs()
+    public function it_can_instanciate()
     {
         $this->assertTrue(
-               true
+            (boolean) SegmentCollection::make()
         );
     }
 }
