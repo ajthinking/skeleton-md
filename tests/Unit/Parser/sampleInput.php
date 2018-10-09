@@ -50,7 +50,7 @@ brand";
 
 /* CASE MULTIPLE MODELS IN INBUT BOX ***************************************/
 
-const THREE_MODEL_WITH_ATTRIBUTES =
+const THREE_MODELS_WITH_ATTRIBUTES =
 "Car
 color
 brand
@@ -62,7 +62,7 @@ hasDriversLicense
 Garage
 size";
 
-const THREE_MODEL_WITH_ATTRIBUTES_PRECIDING_DIRT =
+const THREE_MODELS_WITH_ATTRIBUTES_PRECIDING_DIRT =
 "    Car
 color
 brand
@@ -74,7 +74,7 @@ hasDriversLicense
 Garage
 size";
 
-const THREE_MODEL_WITH_ATTRIBUTES_TRAILING_DIRT =
+const THREE_MODELS_WITH_ATTRIBUTES_TRAILING_DIRT =
 "Car
 color
 brand
@@ -87,7 +87,7 @@ Garage
 size 
 ";
 
-const THREE_MODEL_WITH_ATTRIBUTES_EXTRA_SPACES =
+const THREE_MODELS_WITH_ATTRIBUTES_EXTRA_SPACES =
 "Car 
  color
 brand 
@@ -105,3 +105,18 @@ name
 
 Penis
 user_id";
+
+const THREE_MODELS_AND_ONE_NON_MODEL =
+"Car
+color
+brand
+
+User
+name
+hasDriversLicense
+
+Garage
+size
+
+password_resets
+";

@@ -5,11 +5,19 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Skeleton\Parser;
+use App\Skeleton\SegmentCollection;
 
 require_once(__DIR__ . "/sampleInput.php");
 
 class ParserTest extends TestCase
 {
+    /** @test */
+    public function Parser_returns_a_SegmentCollection()
+    {
+        $this->assertTrue(
+               get_class(Parser::parse(EMPTY_PSEUDO_CODE)) == SegmentCollection::class
+        );
+    }
     
     /** @test */
     public function empty_string_returns_empty_collection()
@@ -36,12 +44,27 @@ class ParserTest extends TestCase
     /** @test */
     public function three_models_with_attributes_returns_collection_of_size_three()
     {
-        //dd(Parser::parse(THREE_MODEL_WITH_ATTRIBUTES));
         $this->assertTrue(
-               Parser::parse(THREE_MODEL_WITH_ATTRIBUTES)->count() == 3
-            && Parser::parse(THREE_MODEL_WITH_ATTRIBUTES_PRECIDING_DIRT)->count() == 3
-            && Parser::parse(THREE_MODEL_WITH_ATTRIBUTES_TRAILING_DIRT)->count() == 3
-            && Parser::parse(THREE_MODEL_WITH_ATTRIBUTES_EXTRA_SPACES)->count() == 3
+               Parser::parse(THREE_MODELS_WITH_ATTRIBUTES)->count() == 3
+            && Parser::parse(THREE_MODELS_WITH_ATTRIBUTES_PRECIDING_DIRT)->count() == 3
+            && Parser::parse(THREE_MODELS_WITH_ATTRIBUTES_TRAILING_DIRT)->count() == 3
+            && Parser::parse(THREE_MODELS_WITH_ATTRIBUTES_EXTRA_SPACES)->count() == 3
+        );
+    }
+
+    /** @test */
+    public function models_can_be_extracted_with_a_models_scope()
+    {
+        $this->assertTrue(
+            Parser::parse(THREE_MODELS_WITH_ATTRIBUTES)->models()->count() == 3        
+        );
+    }
+
+    /** @test */
+    public function models_scope_ignore_non_model_segments()
+    {
+        $this->assertTrue(
+            Parser::parse(THREE_MODELS_AND_ONE_NON_MODEL)->models()->count() == 3        
         );
     }
 }
