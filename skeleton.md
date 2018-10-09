@@ -1,8 +1,7 @@
 Car
-model
 color
+brand
+length
 
-User
-name
-password
-
+Garage
+location

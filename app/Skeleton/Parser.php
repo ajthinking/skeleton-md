@@ -2,6 +2,8 @@
 
 namespace App\Skeleton;
 use App\Skeleton\Segment;
+use App\Skeleton\SegmentCollection;
+
 
 class Parser
 {
@@ -45,7 +47,9 @@ class Parser
 
     private function segment($text)
     {
-        return collect(preg_split('/\n\s*\n/', $text))->filter(function($item) {
+        return SegmentCollection::make(
+            preg_split('/\n\s*\n/', $text) // Split by line groups
+        )->filter(function($item) {
             return $item != "";
         })->map(function($segment) {
             $this->segmentIndex++;
