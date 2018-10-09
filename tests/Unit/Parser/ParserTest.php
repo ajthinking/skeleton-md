@@ -67,4 +67,12 @@ class ParserTest extends TestCase
             Parser::parse(THREE_MODELS_AND_ONE_NON_MODEL)->models()->count() == 3        
         );
     }
+
+    /** @test */
+    public function modelless_tables_can_be_extracted_with_a_tables_scope()
+    {
+        $this->assertTrue(
+            Parser::parse(THREE_MODELS_AND_ONE_NON_MODEL)->tables()->count() == 1        
+        );
+    }
 }

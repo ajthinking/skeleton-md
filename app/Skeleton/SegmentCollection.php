@@ -18,6 +18,16 @@ class SegmentCollection extends Collection
         });
     }
 
+    public function tables()
+    {
+        return SegmentCollection::make($this->items)->filter(function($segment) {
+            // Lower case first letter indicates a modelless table
+            return ctype_lower(
+                $segment->parts->first()[0]
+            );            
+        });
+    }    
+
     public function manyToManyModels()
     {
         return SegmentCollection::make();
