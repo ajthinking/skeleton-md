@@ -6,6 +6,7 @@ Build Laravel apps from intuitive markdown
 composer install ajthinking/skeleton.md
 ```
 <img src="https://i.imgur.com/U9NnDix.gif" title="source: imgur.com" />
+PLACEHOLDER GIF
 
 ## Usage
 ```bash
@@ -49,5 +50,4 @@ The package will attempt to guess datatypes based on simple rules and a statisti
 | `*_text`                        | `text`                                 |
 
 ## Thanks
-Thank you for using this MIT-licensed repository. Support the creator at 
-> andersjurisoo.com/skeleton/pay-what-you-want
+Thank you for using this MIT-licensed repository. Support the creator at [andersjurisoo.com/skeleton/pay-what-you-want](https://www.andersjurisoo.com/skeleton/pay-what-you-want)
