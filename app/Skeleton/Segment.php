@@ -20,8 +20,13 @@ class Segment
         return $this->parts->first();        
     }
 
-    public function pseudoAttributes()
+    public function attributes()
     {
         return $this->parts->slice(1)->values();        
-    }    
+    }
+    
+    public function foreignKeyCandidate()
+    {
+        //return 
+    }
 }

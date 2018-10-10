@@ -91,11 +91,11 @@ class ParserTest extends TestCase
     }
     
     /** @test */
-    public function many_to_many_using_model_can_be_extracted_with_a_scope()
-    {
-        $this->assertTrue(
-            Parser::parse(CAR_USER_RENTAL_WITH_MANY_TO_MANY_USING_MODEL)
-                ->manyToManyModels()->count() == 1
-        );               
-    }    
+    // public function many_to_many_using_model_can_be_extracted_with_a_scope()
+    // {
+    //     $this->assertTrue(
+    //         Parser::parse(CAR_USER_RENTAL_WITH_MANY_TO_MANY_USING_MODEL)
+    //             ->manyToManyModels()->count() == 1
+    //     );               
+    // }    
 }
