@@ -75,4 +75,27 @@ class ParserTest extends TestCase
             Parser::parse(THREE_MODELS_AND_ONE_NON_MODEL)->tables()->count() == 1        
         );
     }
+
+    /** @test */
+    public function many_to_many_modelless_tables_can_be_extracted_with_a_scope()
+    {
+        $this->assertTrue(
+            Parser::parse(CAR_USER_WITH_MANY_TO_MANY_MODELLESS)
+                ->manyToManyModelless()->count() == 1
+        );
+
+        $this->assertTrue(
+            Parser::parse(CAR_USER_WITH_MANY_TO_MANY_MODELLESS_AND_PURE_TABLE)
+                ->manyToManyModelless()->count() == 1
+        );                
+    }
+    
+    /** @test */
+    public function many_to_many_using_model_can_be_extracted_with_a_scope()
+    {
+        $this->assertTrue(
+            Parser::parse(CAR_USER_RENTAL_WITH_MANY_TO_MANY_USING_MODEL)
+                ->manyToManyModels()->count() == 1
+        );               
+    }    
 }

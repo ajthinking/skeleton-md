@@ -120,3 +120,44 @@ size
 
 password_resets
 ";
+
+const CAR_USER_WITH_MANY_TO_MANY_MODELLESS =
+"Car
+color
+brand
+
+User
+name
+hasDriversLicense
+
+car_user
+";
+
+const CAR_USER_WITH_MANY_TO_MANY_MODELLESS_AND_PURE_TABLE =
+"Car
+color
+brand
+
+User
+name
+hasDriversLicense
+
+car_user
+
+car_dummy_table
+just_for_test
+";
+
+const CAR_USER_RENTAL_WITH_MANY_TO_MANY_USING_MODEL =
+"Car
+color
+brand
+
+User
+name
+hasDriversLicense
+
+Rental
+car_id
+user_id
+";

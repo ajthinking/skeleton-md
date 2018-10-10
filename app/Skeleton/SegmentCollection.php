@@ -38,9 +38,11 @@ class SegmentCollection extends Collection
         return SegmentCollection::make();
     }
     
-    public function manyToManyTableOnly()
+    public function manyToManyModelless()
     {
-        return SegmentCollection::make();
+        return $this->tables()->filter(function($tableSegment) {
+            return preg_match($this->manyToManyRegExp(), $tableSegment->parts->first());
+        });
     }
 
 
@@ -60,5 +62,15 @@ class SegmentCollection extends Collection
     private function isModellessTable()
     {
         return true;
+    }
+
+    private function manyToManyRegExp()
+    {
+        // If segment matches MODEL1_MODEL2
+        $modelOptions = $this->models()->map(function($modelSegment) {
+            return strtolower($modelSegment->parts->first());
+        })->implode("|");
+
+        return "/^(" . $modelOptions . ")_(" . $modelOptions . ")$/";
     }
 }
