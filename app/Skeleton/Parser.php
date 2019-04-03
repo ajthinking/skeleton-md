@@ -19,13 +19,12 @@ class Parser
 
     public static function parse($text)
     {
-        $parser = Parser::make();
-        return $parser->segment(
-            $parser->cleanUp($text)
+        return Parser::make()->segment(
+            self::cleanUp($text)
         );        
     }
 
-    public function cleanUp($text)
+    public static function cleanUp($text)
     {
         
         // trim preciding newlines/space

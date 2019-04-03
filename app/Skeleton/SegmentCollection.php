@@ -30,7 +30,16 @@ class SegmentCollection extends Collection
 
     public function manyToManyModels()
     {
-        return SegmentCollection::make();
+        return $this->models()->filter(function($model) {
+            return $model->attributes()->reduce(function($totalForeignKeys, $attribute) {
+                return $totalForeignKeys+=$this->isForeginKey($attribute);
+            }, 0) > 1;
+        });
+    }
+
+    private function isForeginKey($attribute)
+    {
+        return preg_match($this->foreignKeyRegExp(), $attribute);
     }
 
     public function modellessTables()
@@ -73,4 +82,9 @@ class SegmentCollection extends Collection
 
         return "/^(" . $modelOptions . ")_(" . $modelOptions . ")$/";
     }
+
+    private function foreignKeyRegExp()
+    {
+        return "/_id$/";
+    }    
 }
