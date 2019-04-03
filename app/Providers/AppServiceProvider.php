@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use File;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +14,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        File::macro('forceMakeDirectory', function($path) {
+            File::makeDirectory(
+                $path,
+                0755, false, true
+            );
+        });
     }
 
     /**
